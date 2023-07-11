@@ -1,0 +1,3 @@
+baseURL: 'http://example.org/'
+title: 'My New Hugo Site'
+theme: 'hugo-geekdoc'
