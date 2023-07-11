@@ -1,12 +1,10 @@
 ---
-title: Getting Started
+title: 快速开始
 weight: -20
 resources:
   - name: forest-1
     src: "forest-1.jpg"
     title: Forest (1)
-    params:
-      credits: "[Jay Mantri](https://unsplash.com/@jaymantri) on [Unsplash](https://unsplash.com/s/photos/forest)"
 ---
 
 This page tells you how to get started with the Geekdoc theme, including installation and basic configuration.
@@ -17,7 +15,7 @@ This page tells you how to get started with the Geekdoc theme, including install
 
 ## Install requirements
 
-{{< img name="forest-1" lazy=false src="forest-1.jpg">}}
+
 
 You need a recent version of Hugo for local builds and previews of sites that use Geekdoc. As we are using [webpack](https://webpack.js.org/) as pre-processor, the normal version of Hugo is sufficient. If you prefer the extended version of Hugo anyway this will work as well. For comprehensive Hugo documentation, see [gohugo.io](https://gohugo.io/documentation/).
 
