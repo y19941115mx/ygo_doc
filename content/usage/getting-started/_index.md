@@ -18,7 +18,6 @@ This page tells you how to get started with the Geekdoc theme, including install
 ## Install requirements
 
 {{< img name="forest-1" lazy=false src="forest-1.jpg">}}
-![igluro.jpg](https://files.catbox.moe/igluro.jpg)
 
 You need a recent version of Hugo for local builds and previews of sites that use Geekdoc. As we are using [webpack](https://webpack.js.org/) as pre-processor, the normal version of Hugo is sufficient. If you prefer the extended version of Hugo anyway this will work as well. For comprehensive Hugo documentation, see [gohugo.io](https://gohugo.io/documentation/).
 
