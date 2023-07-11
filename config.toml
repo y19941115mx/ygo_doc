@@ -1,6 +1,9 @@
 baseURL = 'https://master--y19941115mx.netlify.app/'
-title = 'Ygo 框架使用文档'
+title = 'Ygo 框架'
 theme = "hugo-geekdoc"
+languageCode = "en-us"
+defaultContentLanguage = "zh-cn"
+defaultContentLanguageInSubdir = true
 
 pluralizeListTitles = false
 
