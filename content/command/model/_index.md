@@ -21,27 +21,31 @@ resources:
     title: 参数
 ---
 
-model 命令提供了自动根据数据库模型创建代码的命令行工具，如果已经定义好数据库表，能帮助你节省不少书写数据库CURD样板代码的时间
+model 命令提供了自动根据数据库模型创建代码的命令行工具，如果已经定义好数据库表，能帮助使用者节省不少书写数据库CURD样板代码的时间
 
-> 命令行的执行需要在项目根目录，否则可能会有路径问题
+{{< hint type=warning >}}
+
+需要在项目根目录执行命令，否则可能会有路径问题
+
+{{< /hint >}}
 
 {{< img name="model1" size="large" lazy=false >}}
 
 包含三个命令：
 
-* ygo model test 测试某个数据库是否可以连接
+* ygo model test 测试数据库是否可以连接
 * ygo model gen 通过数据表自动生成gorm model代码
 * ygo model api 通过数据表自动生成api代码
 
 ## model test
 
-这个命令能帮助你测试下配置好的数据库是否能连接上，以及数据库中都有哪些表
+这个命令测试配置的数据库是否能够连接，以及数据库中都有哪些表
 
 {{< img name="model2"  lazy=false >}}
 
 ## model gen
 
-这个命令帮助你生成数据表对应的gorm的model
+这个命令生成数据表对应的gorm的model
 
 {{< img name="model3"  lazy=false >}}
 
@@ -52,7 +56,7 @@ model 命令提供了自动根据数据库模型创建代码的命令行工具�
 
 ## model api
 
-会生成数据表对应的CRUD接口代码
+这个命令会生成数据表对应的CRUD接口代码
 
 {{< img name="model4"  lazy=false >}}
 

@@ -6,7 +6,6 @@ geekdocAnchor: false
 ---
 
 
-
 <span class="badge-placeholder">[![Ygo Version](https://img.shields.io/badge/Ygo-latest-blue.svg)](https://github.com/y19941115mx/ygo/releases/latest)</span>
 <span class="badge-placeholder">[![GitHub contributors](https://img.shields.io/github/contributors/y19941115mx/ygo)](https://github.com/y19941115mx/ygo/graphs/contributors)</span>
 <span class="badge-placeholder">[![License: MIT](https://img.shields.io/github/license/thegeeklab/hugo-geekdoc)](https://github.com/y19941115mx/ygo/blob/main/LICENSE)</span>

@@ -117,16 +117,15 @@ ygo
 5. 运行示例项目
 
    ```shell
-   # option1: 后面加上执行参数 app start
+   # 后面加上执行参数 app start 
    go run main.go app start
    ```
    访问浏览器[127.0.0.1:8888/swagger/index.html](127.0.0.1:8888/swagger/index.html) 即可访问demo的接口文档：
    {{< img name="demo" size="large" lazy=false >}}
 
-{{< hint type=tip >}}
+{{< hint type=caution >}}
 
-**注意**\
-`ygo app start`命令启动的是框架中自带的demo服务，与用户新创建的web服务没有关系，新创建的项目本质上也是一个Ygo 服务，执行编译后的可执行文件可以使用ygo的所有功能
+`ygo app start`命令启动的是框架中的web服务，与用户新创建的web项目没有关系。新创建的项目本质上是一个新的 Ygo 服务（执行项目编译的可执行文件可以使用ygo内置的所有命令和用户在项目中扩展的命令），这里用`./ygo` 表示项目编译出的可执行文件，启动项目的web服务需要执行命令`./ygo app start`，其他内置命令使用安装的 ygo 命令即可
 
 {{< /hint >}}
 
@@ -134,11 +133,11 @@ ygo
 # 切换项目根目录
 cd <project>
 
-# 项目更目录执行编译
-go build <xxx>.exe
+# 项目根目录执行编译
+go build -o ygo
 
 # 运行 web 服务
-xxx.exe app start 
+./ygo app start 
 ```
 
-至此，我们完成了使用ygo新建项目的工作，下一步用户可以使用[ygo model](/command/model)命令，基于数据库快速完成api的创建
+至此，我们完成了使用ygo新建项目、快速启动项目的工作，下一步用户可以使用[ygo model](/command/model)命令，基于数据库快速完成api的创建
