@@ -7,7 +7,7 @@ geekdocAnchor: false
 
 
 
-<span class="badge-placeholder">[![Ygo Version](https://img.shields.io/badge/ygo-latest-blue.svg)](https://github.com/y19941115mx/ygo/releases/latest)</span>
+<span class="badge-placeholder">[![Ygo Version](https://img.shields.io/badge/Ygo-latest-blue.svg)](https://github.com/y19941115mx/ygo/releases/latest)</span>
 <span class="badge-placeholder">[![GitHub contributors](https://img.shields.io/github/contributors/y19941115mx/ygo)](https://github.com/y19941115mx/ygo/graphs/contributors)</span>
 <span class="badge-placeholder">[![License: MIT](https://img.shields.io/github/license/thegeeklab/hugo-geekdoc)](https://github.com/y19941115mx/ygo/blob/main/LICENSE)</span>
 
@@ -21,7 +21,7 @@ geekdocAnchor: false
 
 ### 易于上手
 
-无需过多配置即可运行，提供简洁的命令行使用入口，支持数据库表直接生成接口，帮助用户快速构建web服务端
+无需过多配置即可运行，提供简洁的命令行使用入口，支持数据库表直接生成接口，帮助用户快速构建web服务
 
 <--->
 

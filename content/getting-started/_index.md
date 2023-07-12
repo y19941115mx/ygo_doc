@@ -2,206 +2,143 @@
 title: 快速开始
 weight: -20
 resources:
-  - name: forest-1
-    src: "forest-1.jpg"
-    title: Forest (1)
+  - name: ygo
+    src: "ygo.png"
+    title: 安装验证
+  - name: demo
+    src: "demo.png"
+    title: 示例
 ---
 
-This page tells you how to get started with the Geekdoc theme, including installation and basic configuration.
-
+这个文档为用户介绍了如何快速开始使用Ygo框架，包括框架的安装与基本的配置
 <!--more-->
 
 {{< toc >}}
 
-## Install requirements
+## 安装准备
 
+框架依赖：
 
+* [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+* [GO](https://go.dev/doc/install)
+* [GCC](https://sourceforge.net/projects/mingw/) 
 
-You need a recent version of Hugo for local builds and previews of sites that use Geekdoc. As we are using [webpack](https://webpack.js.org/) as pre-processor, the normal version of Hugo is sufficient. If you prefer the extended version of Hugo anyway this will work as well. For comprehensive Hugo documentation, see [gohugo.io](https://gohugo.io/documentation/).
+Git 是必需的：
+* 使用 git 从源代码仓库下载Ygo框架代码
+* 使用 Ygo 创建项目功能需依赖git
 
-If you want to use the theme from a cloned branch instead of a release tarball you'll need to install `webpack` locally and run the build script once to create all required assets.
+Go、GCC 是必需的：
+* 从源代码构建 Ygo
+* 安装 Ygo 命令行工具
+  
+## 框架安装
 
-```shell
-# install required packages from package.json
-npm install
+有两种方式完成[Ygo](https://github.com/y19941115mx/ygo)框架的安装
 
-# run the build script to build required assets
-npm run build
-
-# build release tarball
-npm run pack
-```
-
-## Using the theme
-
-To prepare your new site environment just a few steps are required:
-
-1. Create a new empty Hugo site.
-
-   ```shell
-   hugo new site demosite
-   ```
-
-2. Switch to the root of the new site.
-
-   ```shell
-   cd demosite
-   ```
-
-3. Install the Geekdoc theme from a [release bundle](#option-1-download-pre-build-release-bundle) (recommended) or from [Git branch](#option-2-clone-the-github-repository).
-
-4. Create the minimal required Hugo configuration `config.toml`. For all configuration options take a look at the [configuration](/usage/configuration/) page.
-
-   ```toml
-   baseURL = "http://localhost"
-   title = "Geekdocs"
-   theme = "hugo-geekdoc"
-
-   pluralizeListTitles = false
-
-   # Geekdoc required configuration
-   pygmentsUseClasses = true
-   pygmentsCodeFences = true
-   disablePathToLower = true
-
-   # Required if you want to render robots.txt template
-   enableRobotsTXT = true
-
-   # Needed for mermaid shortcodes
-   [markup]
-     [markup.goldmark.renderer]
-       # Needed for mermaid shortcode
-       unsafe = true
-     [markup.tableOfContents]
-       startLevel = 1
-       endLevel = 9
-
-   [taxonomies]
-      tag = "tags"
-   ```
-
-5. Test your site.
-
-   ```shell
-   hugo server -D
-   ```
-
-### Option 1: Download pre-build release bundle
-
-Download and extract the latest release bundle into the theme directory.
+### 方式1：源码编译
 
 ```shell
-mkdir -p themes/hugo-geekdoc/
-curl -L https://github.com/thegeeklab/hugo-geekdoc/releases/latest/download/hugo-geekdoc.tar.gz | tar -xz -C themes/hugo-geekdoc/ --strip-components=1
+# 下载对应版本的源码
+git clone https://github.com/y19941115mx/ygo 
+
+# 进入源码文件夹
+cd ygo
+
+# 安装 ygo 框架
+go install 
 ```
 
-### Option 2: Clone the GitHub repository
+### 方式2： 远程安装
 
-{{< hint type=note >}}
-**Info**\
-Keep in mind this method is not recommended and needs some extra steps to get it working.
-If you want to use the Theme as submodule keep in mind that your build process need to
-run the described steps as well.
+```shell
+go install github.com/y19941115mx/ygo@latest
+```
+
+远程安装本质上就是下载对应版本的源代码并在本地执行编译安装，[版本清单](https://github.com/y19941115mx/ygo/releases)中可以看到框架的所有版本，可以替换 `@latest` 为对应版本号
+
+### 安装验证
+
+执行Ygo的命令行工具，验证框架是否安装成功
+
+```shell
+ygo
+```
+
+可以看到命令行的执行结果
+{{< img name="ygo" size="large" lazy=false >}}
+
+## 框架使用
+
+框架的使用需要以下几个步骤:
+
+1. 创建你的新项目
+
+   ```shell
+   ygo new 
+   ```
+   根据命令行的交互提示，完成项目的创建
+
+
+2. 切换到项目的根目录
+
+   ```shell
+   cd <project>
+   ```
+
+3. 安装项目依赖
+
+    ```shell
+    go mod tidy
+    ```
+
+4. 修改数据库的配置文件 `config\development\database.yml ` 
+
+   ```yaml
+    # 通用配置
+    conn_max_idle: 10 # 连接池最大空闲连接数
+    conn_max_open: 100 # 连接池最大连接数
+    conn_max_lifetime: 1h # 连接数最大生命周期
+    protocol: tcp # 传输协议
+    loc: Local # 时区
+
+    # 默认数据源配置 支持配置多个数据源
+    default: 
+        driver: mysql
+        host: localhost
+        port: 3306
+        database: victor
+        username: root
+        password: "yy6689990"  # env(DB_PASSWORD) 支持使用环境变量
+        charset: utf8mb4
+        collation: utf8mb4_general_ci
+        parse_time: true
+    ```
+
+5. 运行示例项目
+
+   ```shell
+   # option1: 后面加上执行参数 app start
+   go run main.go app start
+   ```
+   访问浏览器[127.0.0.1:8888/swagger/index.html](127.0.0.1:8888/swagger/index.html) 即可访问demo的接口文档：
+   {{< img name="demo" size="large" lazy=false >}}
+
+{{< hint type=tip >}}
+
+**注意**\
+`ygo app start`命令启动的是框架中自带的demo服务，与用户新创建的web服务没有关系，新创建的项目本质上也是一个Ygo 服务，执行编译后的可执行文件可以使用ygo的所有功能
+
 {{< /hint >}}
 
-Clone the Geekdoc git repository.
-
 ```shell
-git clone https://github.com/thegeeklab/hugo-geekdoc.git themes/hugo-geekdoc
+# 切换项目根目录
+cd <project>
+
+# 项目更目录执行编译
+go build <xxx>.exe
+
+# 运行 web 服务
+xxx.exe app start 
 ```
 
-Build required theme assets e.g. CSS files and SVG sprites.
-
-```shell
-npm install
-npm run build
-```
-
-## Deployments
-
-### Netlify
-
-There are several ways to deploy your site with this theme on Netlify. Regardless of which solution you choose, the main goal is to ensure that the prebuilt theme release tarball is used or to run the [required commands](#option-2-clone-the-github-repository) to prepare the theme assets before running the Hugo build command.
-
-Here are some possible solutions:
-
-**Use a Makefile:**
-
-Add a Makefile to your repository to bundle the required steps.
-
-```makefile
-THEME_VERSION := v0.8.2
-THEME := hugo-geekdoc
-BASEDIR := docs
-THEMEDIR := $(BASEDIR)/themes
-
-.PHONY: doc
-doc: doc-assets doc-build
-
-.PHONY: doc-assets
-doc-assets:
-   mkdir -p $(THEMEDIR)/$(THEME)/ ; \
-   curl -sSL "https://github.com/thegeeklab/$(THEME)/releases/download/${THEME_VERSION}/$(THEME).tar.gz" | tar -xz -C $(THEMEDIR)/$(THEME)/ --strip-components=1
-
-.PHONY: doc-build
-doc-build:
-        cd $(BASEDIR); hugo
-
-.PHONY: clean
-clean:
-   rm -rf $(THEMEDIR) && \
-   rm -rf $(BASEDIR)/public
-```
-
-This Makefile can be used in your `netlify.toml`, take a look at the Netlify [example](https://docs.netlify.com/configure-builds/file-based-configuration/#sample-netlify-toml-file) for more information:
-
-```toml
-[build]
-publish = "docs/public"
-command = "make doc"
-```
-
-**Chain required commands:**
-
-Chain all required commands to prepare the theme and build your site on the `command` option in your `netlify.toml` like this:
-
-```toml
-[build]
-publish = "docs/public"
-command = "command1 && command 2 && command3 && hugo"
-```
-
-### Subdirectories
-
-{{< hint type=important >}}
-**Warning**\
-As deploying Hugo sites on subdirectories is not as robust as on subdomains, we do not recommend this.
-If you have a choice, using a domain/subdomain should always be the preferred solution!
-{{< /hint >}}
-
-If you want to deploy your site to a subdirectory of your domain, some extra steps are required:
-
-- Configure your Hugo base URL e.g. `baseURL = http://localhost/demo/`.
-- Don't use `relativeURLs: false` nor `canonifyURLs: true` as is can cause unwanted side effects!
-
-There are two ways to get Markdown links or images working:
-
-- Use the absolute path including your subdirectory e.g. `[testlink](/demo/example-site)`
-- Overwrite the HTML base in your site configuration with `geekdocOverwriteHTMLBase = true` and use the relative path e.g. `[testlink](example-site)`
-
-But there is another special case if you use `geekdocOverwriteHTMLBase = true`. If you use anchors in your Markdown links you have to ensure to always include the page path. As an example `[testlink](#some-anchor)` will resolve to `http://localhost/demo/#some-anchor` and not automatically include the current page!
-
-## Known Limitations
-
-### Minify HTML results in spacing issues
-
-Using `hugo --minify` without further configuration or using other minify tools that also minify HTML files might result in spacing issues in the theme and is **not** supported.
-
-After some testing we decided to not spend effort to fix this issue for now as the benefit is very low. There are some parts of the theme where spaces between HTML elements matters but were stripped by minify tools. Some of these issues are related to <!-- spellchecker-disable -->[gohugoio/hugo#6892](https://github.com/gohugoio/hugo/issues/6892).<!-- spellchecker-enable --> While recommendation like "don't depend on whitespace in your layout" sounds reasonable, it seems to be not that straight forward especially for something like embedded icons into the text flow.
-
-If you still want to use Hugo's minify flag you should at least exclude HTML file in your site [configuration](https://gohugo.io/getting-started/configuration/#configure-minify):
-
-```toml
-[minify]
-  disableHTML = true
-```
+至此，我们完成了使用ygo新建项目的工作，下一步用户可以使用[ygo model](/command/model)命令，基于数据库快速完成api的创建
