@@ -35,7 +35,7 @@ app
 
 ```plain
 http
-│  kernel.go 创建 gin web 服务的核心文件
+│  kernel.go web服务的核心文件，初始化gin服务实例
 │  route.go 路由定义，用户创建的接口需要在这里进行路由注册
 │  swagger.go swagger相关文件，修改可能导致接口文档无法访问
 ├─httputil 工具类
