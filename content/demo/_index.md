@@ -29,7 +29,7 @@ app
     └─user
 ```
 
-`app/http` 目录存放http服务相关的代码，用户在这里定义http接口，推荐接口代码只关心接口输入、输出的处理，具体的业务逻辑则通过调用对应服务来实现，实现接口定义与业务逻辑的解耦合
+`app/http` 目录存放http服务相关的代码，用户在这里定义http接口，推荐接口代码只关心接口输入、输出的处理，具体的业务逻辑则通过调用对应服务来实现，实现接口定义与业务逻辑解耦合
 
 **app/http目录结构:**
 
@@ -37,7 +37,7 @@ app
 http
 │  kernel.go 创建 gin web 服务的核心文件
 │  route.go 路由定义，用户创建的接口需要在这里进行路由注册
-│  swagger.go swagger相关，修改可能导致swagger接口文档无法访问
+│  swagger.go swagger相关文件，修改可能导致接口文档无法访问
 ├─httputil 工具类
 │      error.go 提供统一的异常处理
 │      response.go 提供统一的接口返回值1
@@ -53,10 +53,10 @@ http
 │          api_verify.go
 │          mapper.go 数据映射层，将服务的返回结果映射为dto中的模型定义
 │          dto.go 数据展示层，定义 api 接口的输出结构体
-└─swagger 接口文档相关，由框架自动生成，修改可能导致swagger接口文档无法访问
+└─swagger 接口文档相关，由框架自动生成
 ```
 
-`app/provider`目录存放具体的服务协议与实现，通过命令`ygo provider new` 通过用户交互可以快速创建provider的模板代码
+`app/provider`目录存放具体的服务协议与实现，执行命令`ygo provider new`，通过用户交互快速创建provider的模板代码
 
 **app/provider目录结构:**
 
