@@ -56,14 +56,14 @@ model 命令提供了自动根据数据库模型创建代码的命令行工具�
 
 ## model api
 
-这个命令会生成数据表对应的CRUD接口代码
+这个命令会生成数据表对应的CRUD接口代码，并生成对应的swagger接口文档
 
 {{< img name="model4"  lazy=false >}}
 
 
-接受两个参数:
+接受三个参数:
 - database: 用来表示模型连接的数据库配置地址，默认是database.default，表示config目录下的{env}目录下的database.yaml中的default配置
 - module：接口代码的模块名称 {http_module}/{module} 会作为代码的输出路径
-- tables：可以通过参数直接指定数据表，跳过交互选择数据表的过程
+- tables：可通过该参数直接指定数据表，跳过交互选择数据表的过程
 
 {{< img name="flag2"  lazy=false >}}
