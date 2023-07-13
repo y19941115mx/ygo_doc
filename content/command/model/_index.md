@@ -1,5 +1,5 @@
 ---
-title: 数据库模型命令
+title: 数据库模型
 resources:
   - name: model1
     src: "model1.png"
@@ -57,6 +57,12 @@ model 命令提供了自动根据数据库模型创建代码的命令行工具�
 ## model api
 
 这个命令会生成数据表对应的CRUD接口代码，并生成对应的swagger接口文档
+
+{{< hint type=note >}}
+
+根据数据库自动生成代码的逻辑不考虑扩展，生成的代码并没有按照框架推荐的开发规范进行代码分层，推荐的开发流程请参考[案例演示](/demo#web服务开发规范)
+
+{{< /hint >}}
 
 {{< img name="model4"  lazy=false >}}
 
