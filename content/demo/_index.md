@@ -4,7 +4,8 @@ weight: -1
 resources:
   - name: demo1
     src: "demo1.png"
-    title: provider/user/contract
+    # title: provider/user/contract
+    title: 流程图
 ---
 
 下面将通过介绍框架提供的案例:`user`用户服务，展示框架推荐的业务开发流程：测试驱动开发
