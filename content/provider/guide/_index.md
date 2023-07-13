@@ -1,6 +1,6 @@
 ---
 title: 介绍
-weight: -1
+weight: -1000
 ---
 
 Ygo 框架使用ServiceProvider机制来满足协议，通过service Provder提供某个协议服务的具体实现。这样如果开发者对具体的实现协议的服务类的具体实现不满意，则可以很方便的通过切换具体协议的Service Provider来进行具体服务的切换。
