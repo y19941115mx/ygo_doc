@@ -13,7 +13,7 @@ geekdocAnchor: false
 
 基于接口协议，多功能可扩展的go web端开发框架
 
-{{< button size="large" relref="getting-started/" >}}开始使用{{< /button >}}
+{{< button size="large" relref="/getting-started" >}}开始使用{{< /button >}}
 
 
 {{< columns >}}
